@@ -1,0 +1,19 @@
+.recipes-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.recipe-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 30px;
+  border: 1px dotted black;
+  width: 50%;
+  align-self: center;
+  margin: 0;
+}
+
+.recipe-card > * {
+  font-style: italic;
+}
