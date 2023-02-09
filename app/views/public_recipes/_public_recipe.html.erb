@@ -9,6 +9,6 @@
     <% end %>
   <div class="recipe-description">
     <%=public_recipe.description%>
-    <p>Total food items: <%= '2' %> Price: <%= '$ 0' %> </p>
+    <p>Total food items: <%= public_recipe.recipe_foods.sum(:quantity) %> Price: <%= "$ #{public_recipe.recipe_foods.sum(:quantity) * public_recipe.foods.sum(:price)}" %> </p>
   </div>
 </li>
