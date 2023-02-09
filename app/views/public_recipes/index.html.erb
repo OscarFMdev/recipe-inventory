@@ -1,7 +1,11 @@
  <div class="">
-   <h1 class="">Recipes</h1>
+   <h1 class="heading">Recipes</h1>
     <div class="" >
-      <%= link_to "New recipe", new_recipe_path, class: "" %>
+      <%= link_to new_recipe_path do %>
+      <button class="add-btn">
+        New recipe
+      </button>
+      <% end %>
     </div>
     <% @recipes.each do |public_recipe| %>
       <%= render partial: "public_recipe", locals: { public_recipe: public_recipe } %>
