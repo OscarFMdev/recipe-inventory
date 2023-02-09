@@ -1,4 +1,23 @@
 <h1><%= @recipe.name %></h1>
+
+<% if @recipe.public %>
+<div class="checker-container">
+  <input class="check-box" type="checkbox" id="checkbox-check" checked />
+  <label class="check-label" for="checkbox-check">Public</label>
+</div>
+
+<% end %> <% if !@recipe.public %>
+<div class="checker-container">
+  <input class="check-box" type="checkbox" id="checkbox-check"/>
+  <label class="check-label" for="checkbox-check">Public</label>
+</div>
+<% end %>
+
+<%= link_to "Generate shopping list", recipes_path %>
+<% if current_user.id == @recipe.user_id %>
+    <%= link_to recipes_path do %>Add Ingredients<% end %>
+<% end %>
+
 <p>Preparation time: <%= @recipe.preparation_time %> minutes</p>
 <p>Cooking time: <%= @recipe.cooking_time %> minutes</p>
 <p><%= @recipe.description %></p>
