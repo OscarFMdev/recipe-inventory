@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
 
   get '/general_shopping_list', to: 'foods#general'
-  get '/public_recipes', to: 'recipes#public'
+  resources :public_recipes
 
   
   root to: "foods#index"
