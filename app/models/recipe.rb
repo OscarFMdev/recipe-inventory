@@ -1,6 +1,8 @@
 class Recipe < ApplicationRecord
   before_create :set_recipe_number
 
+  attr_accessor :recipe_number
+
   belongs_to :user
   has_many :recipe_foods, dependent: :destroy
   has_many :foods, through: :recipe_foods
