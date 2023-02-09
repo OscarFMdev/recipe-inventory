@@ -2,9 +2,11 @@
   <div class="recipe-name">
     <%= link_to recipe.name, recipe_path(recipe) %>
   </div>
-  <div class="delete-button">
-    <%= button_to "Delete", recipe_path(recipe), :method => :delete, data: {turbo_method: :delete}, class: "" %>
-  </div>
+    <% if current_user.id == recipe.user_id%>
+      <div class="delete-button">
+          <%= button_to "Delete", recipe_path(recipe), :method => :delete, data: {turbo_method: :delete}, class: "" %>
+      </div>
+    <% end %>
   <div class="recipe-description">
     <%=recipe.description%>
   </div>
