@@ -35,6 +35,7 @@
   color: white;
   border-radius: 10px;
 }
+
 .notice {
   background-color: green;
 }
@@ -57,6 +58,7 @@
 .log-out-link:hover {
   color: red;
 }
+
 .container {
   max-width: 1140px;
   margin: 0 auto;
@@ -76,7 +78,7 @@
   padding: 0.75rem;
   vertical-align: middle;
   text-align: center;
-  color: white
+  color: white;
 }
 
 .List th,
@@ -262,13 +264,6 @@ ul {
   margin-top: 20px;
 }
 
-.actions {
-  display: flex;
-  justify-content: space-between;
-  width: 50%;
-  margin-top: 50px;
-}
-
 .action-item {
   width: 45%;
   text-align: center;
@@ -283,7 +278,6 @@ ul {
   cursor: pointer;
   font-size: 12px;
 }
-
 
 .add-btn:hover {
   background-color: rgb(10, 107, 242);
@@ -418,7 +412,10 @@ ul {
 
 .actions {
   text-align: right;
-  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  margin-top: 50px;
 }
 
 .actions input[type="submit"] {

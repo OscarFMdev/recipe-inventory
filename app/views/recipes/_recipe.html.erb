@@ -1,7 +1,7 @@
 <li class="recipe-listing">
   <div class="recipe-name">
     <%= link_to recipe_path(recipe) do %>
-     <h4>Recipe <%= recipe.recipe_number %> </h4>
+     <h4>Recipe #<%= recipe.recipe_number %> </h4>
      <p><%= recipe.name %></p>
     <% end %>
   </div>

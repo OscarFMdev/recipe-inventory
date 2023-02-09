@@ -21,13 +21,15 @@
       <span> <%= @recipe.description %></span>
     </div>
   </div>
-  <div class="public-switch">
-    <span>Public</span>
-    <label for="public-switch">
-      <input type="checkbox" id="public-switch" class="" <%= @recipe.public ? 'checked' : '' %>>
-      <div class="switch"></div>
-    </label>
-  </div>
+  <% if @current_user.id == @recipe.user_id %>
+    <div class="public-switch">
+      <span>Public</span>
+      <label for="public-switch">
+        <input type="checkbox" id="public-switch" class="" <%= @recipe.public ? 'checked' : '' %>>
+        <div class="switch"></div>
+      </label>
+    </div>
+  <% end %>
   <div class="actions">
     <div class="action-item">
       <%= link_to "/general_shopping_list", class: "action-link" do %>

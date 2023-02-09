@@ -23,7 +23,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
     @recipe.user_id = current_user.id
 
-    @recipe.public = params.fetch(:recipe, {}).fetch(:public, false) == "true"
+    @recipe.public = params.fetch(:recipe, {}).fetch(:public, false) == 'true'
 
     respond_to do |format|
       if @recipe.save

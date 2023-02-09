@@ -1,7 +1,7 @@
 class Recipe < ApplicationRecord
   before_create :set_recipe_number
 
-  attr_accessor :recipe_number
+  attr_accessor :recipe_sequence_number
 
   belongs_to :user
   has_many :recipe_foods, dependent: :destroy
@@ -14,18 +14,11 @@ class Recipe < ApplicationRecord
   validates :public, inclusion: { in: [true, false] }
 
   def recipe_number
-    # get all recipes created by the same user as the current recipe
-    user_recipes = Recipe.where(user_id: self.user_id)
-
-    # find the position of the current recipe in the list of user recipes
-    recipe_position = user_recipes.index(self) + 1
-
-    # return the recipe position
-    recipe_position
+    user_recipes = Recipe.where(user_id:)
+    user_recipes.index(self) + 1
   end
 
   def set_recipe_number
-    self.recipe_number = (Recipe.last.try(:recipe_number) || 0) + 1
+    self.recipe_sequence_number = (Recipe.last.try(:recipe_sequence_number) || 0) + 1
   end
-
 end
