@@ -16,6 +16,7 @@
 
 .recipe-card > * {
   font-style: italic;
+  width: 100%;
 }
 
 
@@ -26,10 +27,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.recipe-card {
-  width: 100%;
 }
 
 .recipes-list {
