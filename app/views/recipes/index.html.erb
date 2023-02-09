@@ -1,19 +1,24 @@
-<h1>Your recipes</h1>
+<h1>Your recipes <%= @current_user.name %> </h1>
+<h3>You're a [<%= current_user.role %>]</h3>
 
 <section class="recipes-container">
 
 <% @recipes.each do |recipe| %>
+  <% delete_permission = current_user.id == recipe.user_id %>
     <div class="recipe-card">
       <div class="left-side">
         <h2>
           <%= link_to recipe.name, recipe_path(recipe.id) %>
         </h2>
-        <button>
-          <%= link_to 'Delete recipe', recipe_path(recipe.id), data: { 
-          turbo_method: :delete, 
-          confirm: 'Are you sure?' 
-          } %>
-        </button>
+        <% if  delete_permission || current_user.admin? %>
+          <button>
+            <%= link_to 'Remove', recipe_path(recipe.id), data: { 
+            turbo_method: :delete, 
+            confirm: 'Are you sure?' 
+            } %>
+          </button>
+        <% end %>
+
       </div>
       <p><%= recipe.description %></p>
     </div>

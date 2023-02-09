@@ -16,4 +16,17 @@
 
 .recipe-card > * {
   font-style: italic;
+  width: 100%;
+}
+
+/* Public recipes */
+
+.public-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.recipes-list {
+  padding: 0;
 }
