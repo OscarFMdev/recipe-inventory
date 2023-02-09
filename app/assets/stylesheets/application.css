@@ -123,6 +123,7 @@
   cursor: pointer;
   font-size: 16px;
 }
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -150,4 +151,188 @@ ul {
 
 .form-submit:hover {
   background-color: #042147;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #fff;
+}
+
+.navbar a {
+  font-size: 1.25rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #000;
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  margin: 0 1rem;
+}
+
+.header-icons ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  justify-content: flex-end;
+}
+
+.header-icons a {
+  font-size: 1.25rem;
+  color: #000;
+}
+
+#responsive-navbar {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .header-icons {
+    display: none;
+  }
+
+  #responsive-navbar {
+    display: block;
+  }
+}
+
+.List {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+
+.List p {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.List div {
+  margin-bottom: 10px;
+}
+
+.List table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.List th,
+.List td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.List th {
+  background-color: #ddd;
+}
+
+.recipe-listing {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+}
+
+.recipe-name {
+  font-weight: bold;
+  font-size: 18px;
+  margin-right: 20px;
+}
+
+.delete-button {
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.recipe-description {
+  margin-top: 10px;
+  font-size: 14px;
+  color: gray;
+}
+
+.newRecepForm {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.form-location {
+  margin-bottom: 20px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.form-label-checkbox {
+  display: inline-block;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.add-recipe-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #131236;
+  color: #fff;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.field {
+  margin: 20px 0;
+}
+
+.field label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.field input[type="email"],
+.field input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.actions {
+  text-align: right;
+  margin-top: 20px;
+}
+
+.actions input[type="submit"] {
+  padding: 10px 20px;
+  background-color: #050116;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.form-container {
+  width: 500px;
+  margin: 50px auto;
 }
