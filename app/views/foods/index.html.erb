@@ -1,24 +1,27 @@
-<div class="">
-	<div class="">
-     <div class=""><%= link_to "Add Food", new_food_path, class: "" %></div>
-		<div class=" ">
-			<table class="">
-				<thead class="">
+<div class="container">
+	<div class="row">
+		<div class="col-12 text-center mt-3 mb-3">
+			<%= link_to "Add Food", new_food_path, class: "add-food-btn" %>
+		</div>
+		<div class="col-12">
+			<table class="food-table">
+				<thead class="table-header">
 					<tr>
-						<th class="">Food</th>
-						<th class="">Quantity</th>
-						<th class="">Measurement</th>
-						<th class="">Unit Price</th>
-						<th class="">Action</th>
+						<th class="table-header-cell">Food</th>
+						<th class="table-header-cell">Quantity</th>
+						<th class="table-header-cell">Measurement</th>
+						<th class="table-header-cell">Unit Price</th>
+						<th class="table-header-cell">Action</th>
 					</tr>
 				</thead>
-        <% @foods.each do |food|%>
-        <%= render 'food', food: food %>
-        <% end %>
-        </table>
-                </div>
+				<% @foods.each do |food|%>
+				<%= render 'food', food: food %>
+				<% end %>
+			</table>
+		</div>
 	</div>
 </div>
+
 <style>
 	.table {
 		border-spacing: 0 15px;
