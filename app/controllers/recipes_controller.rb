@@ -32,27 +32,30 @@ class RecipesController < ApplicationController
     end
   end
 
-  
   def destroy
     @recipe = Recipe.find(params[:id])
-    @recipe.destroy
-    redirect_to recipes_path, notice: 'Your recipe has been successfully deleted'
-  end
-end
-
-def public
-  @totals = {}
-  @public_recipes = Recipe.where(public: true).order('created_at DESC')
-  @public_recipes.each do |pub|
-    total = 0
-    RecipeFood.where(recipe_id: pub.id).each do |rec_food|
-      total += rec_food.quantity * rec_food.food.price
+    respond_to do |format|
+      if @recipe.destroy
+        format.html { redirect_to recipes_path, notice: 'Recipe was deleted successfully.' }
+      else
+        format.html { render :new, alert: 'An error has occurred while deleting the recipt, try again' }
+      end
     end
-    @totals[pub.name] = total
   end
-end
 
-def recipe_params
-  params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public)
-end
+  def public
+    @totals = {}
+    @public_recipes = Recipe.where(public: true).order('created_at DESC')
+    @public_recipes.each do |pub|
+      total = 0
+      RecipeFood.where(recipe_id: pub.id).each do |rec_food|
+        total += rec_food.quantity * rec_food.food.price
+      end
+      @totals[pub.name] = total
+    end
+  end
+
+  def recipe_params
+    params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public)
+  end
 end
