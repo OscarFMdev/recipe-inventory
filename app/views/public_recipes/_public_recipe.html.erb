@@ -1,0 +1,14 @@
+<li class="recipe-listing">
+  <div class="recipe-name">
+    <%= link_to public_recipe.name, recipe_path(public_recipe) %>
+  </div>
+    <% if current_user.id == public_recipe.user_id%>
+      <div class="delete-button">
+          <%= button_to "Delete", public_recipe_path(public_recipe), :method => :delete, data: {turbo_method: :delete}, class: "" %>
+      </div>
+    <% end %>
+  <div class="recipe-description">
+    <%=public_recipe.description%>
+    <p>Total food items: <%= public_recipe.recipe_foods.sum(:quantity) %> Price: <%= "$ #{public_recipe.recipe_foods.sum(:quantity) * public_recipe.foods.sum(:price)}" %> </p>
+  </div>
+</li>

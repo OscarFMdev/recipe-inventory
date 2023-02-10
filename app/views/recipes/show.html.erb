@@ -1,30 +1,56 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
 	rel="stylesheet">
-<div class="">
-	<div class=" ">
-    <div class="">
-     <div class="">
-     <span class=" "><b class="">Name:</b> <%= @recipe.name %></span>
-      <span><b class="">Preparation Time:</b> <%= @recipe.preparation_time %></span>
-      <span><b class="">Cooking Time:</b> <%= @recipe.cooking_time %></span>
-      <span><b class="">Description:</b> <%= @recipe.description %></span>
-      </div>
-       <span class="">Public</span>
-    <div class="">
-<label for="" class="">
-  <input type="checkbox" id="" class="" <%= @recipe.public ? 'checked' : '' %>>
-  <div class=""></div>
- 
-</label>
+<div class="recipe-details">
+<h1 class="recipe-name-show">Recipe #<%= @recipe.recipe_number %></h1>
+  <div class="recipe-info">
+    <div class="info-item">
+      <p><b>Name:</b></p>
+      <span><%= @recipe.name %></span>
+    </div>
+    <div class="info-item">
+      <p><b>Preparation Time:</b></p>
+      <span> <%= @recipe.preparation_time %></span>
+    </div>
+    <div class="info-item">
+    <p><b>Cooking Time:</b></p>
+      <span> <%= @recipe.cooking_time %></span>
+    </div>
+    <div class="info-item">
+      <p><b>Description:</b></p>
+      <span> <%= @recipe.description %></span>
+    </div>
+  </div>
+  <% if @current_user.id == @recipe.user_id %>
+    <div class="public-switch">
+      <span>Public</span>
+      <label for="public-switch">
+        <input type="checkbox" id="public-switch" class="" <%= @recipe.public ? 'checked' : '' %>>
+        <div class="switch"></div>
+      </label>
+    </div>
+  <% end %>
+  <div class="actions">
+    <div class="action-item">
+      <%= link_to "/general_shopping_list", class: "action-link" do %>
+        <button>
+          General Shopping List
+        </button>
+      <% end %>
+    </div>
+    <div class="action-item">
+      <%= link_to new_recipe_recipe_food_path(@recipe), class: "action-link" do %>
+        <button>
+          Add Ingredient
+        </button>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 
-    </div>
-    </div>
-    <div class=" ">
-      <div class=""><%= link_to "General Shopping List", "/general_shopping_list", class: "" %></div>
-      <div class=""><%= link_to "Add Ingredient", new_recipe_recipe_food_path(@recipe), class: "" %></div>
-    </div>
+
+
 
     
      <hr class="">
@@ -41,7 +67,7 @@
         </thead>
         
           <% @recipe_foods.each do |recipe_food| %>
-          <%= render :partial => 'recipes/ingredian', :locals => {:recipe_food => recipe_food} %>
+            <%= render :partial => 'recipes/ingredian', :locals => {:recipe_food => recipe_food} %>
           <% end %>
     <% else %>
       <p class="">Ingredient list is empty.</p>

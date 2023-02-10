@@ -1,25 +1,13 @@
-<section class="public-section">
-  <h1 class="publicTitleRecep">Public Recipes</h1>
-  <ul class="recipes-list">
-        <% if @recipes.empty? %>
-          <li>
-              There are no public recipes yet...
-          </li>
-          <% end %>
-          <% @recipes.each do |recipe|%>
-          <li class="public-recipe">
-              <div class="recipe-card">
-                <div>
-                  <h3><%= link_to recipe.name, recipe_path(recipe) %></h3>
-                  <h4>By: <%= recipe.user.name %> </h4>
-                </div>
-                <div class="info-card-pub">
-                  <h4> Total food items: <%= recipe.recipe_foods.count %> </h4>
-                  <p>Price: </p>
-                </div>
-              </div>
-
-          </li>
-          <% end %>
-  </ul>
-</section>
+ <div class="">
+   <h1 class="heading">Recipes</h1>
+    <div class="" >
+      <%= link_to new_recipe_path do %>
+      <button class="add-btn">
+        New recipe
+      </button>
+      <% end %>
+    </div>
+    <% @recipes.each do |public_recipe| %>
+      <%= render partial: "public_recipe", locals: { public_recipe: public_recipe } %>
+    <% end %>
+</div>

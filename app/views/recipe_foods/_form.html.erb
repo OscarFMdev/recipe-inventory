@@ -1,0 +1,13 @@
+<%= form_with(model: @recipe_food, url: recipe_recipe_foods_path(recipe_id: params[:recipe_id])) do |form| %>
+  <div class="field">
+    <%= form.label :food_id, 'Food' %>
+    <%= form.collection_select :food_id, @foods, :id, :name %>
+  </div>
+  <div class="field">
+    <%= form.label :quantity %>
+    <%= form.text_field :quantity %>
+  </div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

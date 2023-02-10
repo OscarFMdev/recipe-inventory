@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.all.where(user_id: current_user.id).order(created_at: :desc)
   end
 
   def new
@@ -22,6 +22,9 @@ class RecipesController < ApplicationController
   def create
     @recipe = Recipe.new(recipe_params)
     @recipe.user_id = current_user.id
+
+    @recipe.public = params.fetch(:recipe, {}).fetch(:public, false) == 'true'
+
     respond_to do |format|
       if @recipe.save
         format.html { redirect_to recipe_url(@recipe), notice: 'Recipe was successfully created.' }
@@ -43,17 +46,7 @@ class RecipesController < ApplicationController
     end
   end
 
-  def public
-    @totals = {}
-    @public_recipes = Recipe.where(public: true).order('created_at DESC')
-    @public_recipes.each do |pub|
-      total = 0
-      RecipeFood.where(recipe_id: pub.id).each do |rec_food|
-        total += rec_food.quantity * rec_food.food.price
-      end
-      @totals[pub.name] = total
-    end
-  end
+  private
 
   def recipe_params
     params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public)

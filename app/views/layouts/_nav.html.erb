@@ -2,20 +2,15 @@
       <!-- navbar -->
     <nav  >
       <div class="">
-        <a  href="#">
+        <a  href="/public_recipes" class="home-link">
     
-          Recipe Inventry.
+          Recipe Inventory
         </a>
          <% if current_user%>
-        <ul >
-          
-          <li><%= link_to "Foods", foods_path, class: "" %></li>
-          <li><%= link_to "General Shopping List", "/general_shopping_list", class: "" %></li>
-        </ul>
         <!-- Header Icons -->
         <div >
         <ul >
-        <li><a  href="#">Welcome <%= current_user.name %>!</a></li>
+        <li><a  href="/foods">Welcome <%= current_user.name %>!</a></li>
         
         </ul>
         </div>
@@ -23,13 +18,15 @@
       </div> 
       
     </nav>
-
+        <ul >
+          
+          <li><%= link_to "Foods", foods_path, class: "navigation-link" %></li>
+          <li><%= link_to "General Shopping List", "/general_shopping_list", class: "navigation-link" %></li>
         <!-- Nav Links -->
         <% if current_user%>
-        <ul>
-          <li><%= link_to "Recipes", recipes_path, class: "" %></li>
-          <li><%= link_to "Public Recipes", "/public_recipes", class: "" %></li>
-          <li><%= link_to 'Log out', destroy_user_session_path, method: :delete , data: { turbo: false }, class: " " %></li>
+          <li><%= link_to "Recipes", recipes_path, class: "navigation-link" %></li>
+          <li><%= link_to "Public Recipes", public_recipes_path, class: "navigation-link" %></li>
+          <li><%= link_to 'Log out', destroy_user_session_path, method: :delete , data: { turbo: false }, class: "navigation-link log-out-link" %></li>
         </ul>
    <% end %>
   </div>
