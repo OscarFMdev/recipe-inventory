@@ -1,6 +1,6 @@
 class FoodsController < ApplicationController
   def index
-    @foods = current_user.foods
+    @foods = current_user.foods.includes(:user)
   end
 
   def new
@@ -47,7 +47,7 @@ class FoodsController < ApplicationController
   end
 
   def general
-    @foods = current_user.foods
+    @foods = current_user.foods.includes([:recipe_foods])
     current_user.recipes.map do |recipe|
       recipe.recipe_foods.map do |recipe_food|
         food = recipe_food.food
