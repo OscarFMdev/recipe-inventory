@@ -17,12 +17,9 @@
 							<span class="">$ <%= food.price %></span>
 						</td>
 						<td class=" ">
-							<span class="">
-								<i class=""><%= link_to "edit", edit_food_path(food) %></i>
-						    </span>
 
 							<span class="">
-								<i class=""><%= button_to "delete_outline", food_path(food.id), method: :delete, data: { confirm: "Are you sure?" } %></i>
+								<i class=""><%= button_to "Delete", food_path(food.id), method: :delete, data: { confirm: "Are you sure?" }, class:"delete-button" %></i>
 						    </span>
 						</td>
 					</tr>
