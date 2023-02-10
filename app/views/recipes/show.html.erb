@@ -2,34 +2,28 @@
 	href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
 	rel="stylesheet">
 <div class="recipe-details">
-<h1 class="recipe-name-show">Recipe #<%= @recipe.recipe_number %></h1>
+<h1 class="recipe-name-show">Recipe <%= @recipe.recipe_number %></h1>
   <div class="recipe-info">
-    <div class="info-item">
-      <p><b>Name:</b></p>
-      <span><%= @recipe.name %></span>
+    <div class="info-item flex-around">
+      <p><b>Preparation Time:  <span> <%= @recipe.preparation_time %></span></b></p>
+      <% if @current_user.id == @recipe.user_id %>
+      <div class="public-switch">
+        <span>Public</span>
+        <label for="public-switch">
+          <input type="checkbox" id="public-switch" class="" <%= @recipe.public ? 'checked' : '' %>>
+          <div class="switch"></div>
+        </label>
+      </div>
+    <% end %>
     </div>
     <div class="info-item">
-      <p><b>Preparation Time:</b></p>
-      <span> <%= @recipe.preparation_time %></span>
+    <p><b>Cooking Time: <span> <%= @recipe.cooking_time %></span></b></p>
+      
     </div>
     <div class="info-item">
-    <p><b>Cooking Time:</b></p>
-      <span> <%= @recipe.cooking_time %></span>
-    </div>
-    <div class="info-item">
-      <p><b>Description:</b></p>
       <span> <%= @recipe.description %></span>
     </div>
   </div>
-  <% if @current_user.id == @recipe.user_id %>
-    <div class="public-switch">
-      <span>Public</span>
-      <label for="public-switch">
-        <input type="checkbox" id="public-switch" class="" <%= @recipe.public ? 'checked' : '' %>>
-        <div class="switch"></div>
-      </label>
-    </div>
-  <% end %>
   <div class="actions">
     <div class="action-item">
       <%= link_to "/general_shopping_list", class: "action-link" do %>
@@ -54,15 +48,15 @@
 
     
      <hr class="">
-		<div class=" ">
-			<table class="">
+		<div class="ingredient-container">
+			<table class="food-table">
         <% if @recipe_foods.length > 0 %>
-        <thead>
+        <thead class="table-header">
           <tr>
-            <th class="">Food</th>
-            <th class="">Quantity</th>
-            <th class="">Value</th>
-            <th class="">Actions</th>
+            <th class="table-header-cell">Food</th>
+            <th class="table-header-cell">Quantity</th>
+            <th class="table-header-cell">Value</th>
+            <th class="table-header-cell">Actions</th>
           </tr>
         </thead>
         
@@ -76,6 +70,7 @@
                 </div>
 	</div>
 </div>
+
 <style>
 	.table {
 		border-spacing: 0 15px;
