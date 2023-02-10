@@ -1,6 +1,7 @@
 <li class="recipe-listing">
   <div class="recipe-name">
     <%= link_to public_recipe.name, recipe_path(public_recipe) %>
+    <p>By: <%= User.find(public_recipe.user_id).name %></p>
   </div>
     <% if current_user.id == public_recipe.user_id%>
       <div class="delete-button">
