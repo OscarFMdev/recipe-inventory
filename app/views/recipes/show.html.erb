@@ -1,23 +1,75 @@
-<h1><%= @recipe.name %></h1>
+<link
+	href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+	rel="stylesheet">
+<div class="">
+	<div class=" ">
+    <div class="">
+     <div class="">
+     <span class=" "><b class="">Name:</b> <%= @recipe.name %></span>
+      <span><b class="">Preparation Time:</b> <%= @recipe.preparation_time %></span>
+      <span><b class="">Cooking Time:</b> <%= @recipe.cooking_time %></span>
+      <span><b class="">Description:</b> <%= @recipe.description %></span>
+      </div>
+       <span class="">Public</span>
+    <div class="">
+<label for="" class="">
+  <input type="checkbox" id="" class="" <%= @recipe.public ? 'checked' : '' %>>
+  <div class=""></div>
+ 
+</label>
 
-<% if @recipe.public %>
-<div class="checker-container">
-  <input class="check-box" type="checkbox" id="checkbox-check" checked />
-  <label class="check-label" for="checkbox-check">Public</label>
+
+    </div>
+    </div>
+    <div class=" ">
+      <div class=""><%= link_to "General Shopping List", "/general_shopping_list", class: "" %></div>
+      <div class=""><%= link_to "Add Ingredient", new_recipe_recipe_food_path(@recipe), class: "" %></div>
+    </div>
+
+    
+     <hr class="">
+		<div class=" ">
+			<table class="">
+        <% if @recipe_foods.length > 0 %>
+        <thead>
+          <tr>
+            <th class="">Food</th>
+            <th class="">Quantity</th>
+            <th class="">Value</th>
+            <th class="">Actions</th>
+          </tr>
+        </thead>
+        
+          <% @recipe_foods.each do |recipe_food| %>
+          <%= render :partial => 'recipes/ingredian', :locals => {:recipe_food => recipe_food} %>
+          <% end %>
+    <% else %>
+      <p class="">Ingredient list is empty.</p>
+    <% end %>
+        </table>
+                </div>
+	</div>
 </div>
+<style>
+	.table {
+		border-spacing: 0 15px;
+	}
 
-<% end %> <% if !@recipe.public %>
-<div class="checker-container">
-  <input class="check-box" type="checkbox" id="checkbox-check"/>
-  <label class="check-label" for="checkbox-check">Public</label>
-</div>
-<% end %>
+	i {
+		font-size: 1rem !important;
+	}
 
-<%= link_to "Generate shopping list", recipes_path %>
-<% if current_user.id == @recipe.user_id %>
-    <%= link_to recipes_path do %>Add Ingredients<% end %>
-<% end %>
+	.table tr {
+		border-radius: 20px;
+	}
 
-<p>Preparation time: <%= @recipe.preparation_time %> minutes</p>
-<p>Cooking time: <%= @recipe.cooking_time %> minutes</p>
-<p><%= @recipe.description %></p>
+	tr td:nth-child(n+5),
+	tr th:nth-child(n+5) {
+		border-radius: 0 .625rem .625rem 0;
+	}
+
+	tr td:nth-child(1),
+	tr th:nth-child(1) {
+		border-radius: .625rem 0 0 .625rem;
+	}
+</style>
