@@ -41,11 +41,6 @@
     </div>
   </div>
 </div>
-
-
-
-
-
     
      <hr class="">
 		<div class="ingredient-container">
@@ -61,7 +56,7 @@
         </thead>
         
           <% @recipe_foods.each do |recipe_food| %>
-            <%= render :partial => 'recipes/ingredian', :locals => {:recipe_food => recipe_food} %>
+            <%= render :partial => 'recipe_foods/recipe_ingredients', :locals => {:recipe_food => recipe_food} %>
           <% end %>
     <% else %>
       <p class="">Ingredient list is empty.</p>
