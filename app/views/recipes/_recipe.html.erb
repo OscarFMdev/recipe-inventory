@@ -4,12 +4,12 @@
      <h4>Recipe #<%= recipe.recipe_number %> </h4>
      <p><%= recipe.name %></p>
     <% end %>
-  </div>
     <% if current_user.id == recipe.user_id%>
-      <div class="delete-button">
-          <%= button_to "Delete", recipe_path(recipe), :method => :delete, data: {turbo_method: :delete}, class: "" %>
+      <div>
+          <%= button_to "Delete", recipe_path(recipe), :method => :delete, data: {turbo_method: :delete}, class: "delete-button" %>
       </div>
     <% end %>
+  </div>
   <div class="recipe-description">
     <%=recipe.description%>
   </div>

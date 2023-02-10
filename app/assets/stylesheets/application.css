@@ -24,6 +24,14 @@
   flex-direction: column;
 }
 
+.flex-around {
+  display: flex;
+  justify-content: initial;
+  width: inherit;
+  align-items: baseline;
+  column-gap: 40%;
+}
+
 .home-link {
   margin-bottom: 20px;
 }
@@ -64,6 +72,10 @@
   margin: 0 auto;
 }
 
+.table tr {
+  border-radius: 20px;
+}
+
 .food-table {
   border-spacing: 0 15px;
 }
@@ -90,6 +102,16 @@
 
 .List th {
   background-color: #ddd;
+}
+
+tr td:nth-child(n+5),
+tr th:nth-child(n+5) {
+  border-radius: 0 0.625rem 0.625rem 0;
+}
+
+tr td:nth-child(1),
+tr th:nth-child(1) {
+  border-radius: 0.625rem 0 0 0.625rem;
 }
 
 .food-table tbody tr:nth-child(odd) {
@@ -249,13 +271,14 @@ ul {
   flex-direction: column;
   width: 30rem;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   margin-bottom: 20px;
   text-align: center;
 }
 
 .info-item {
   margin: 0 20px;
+  font-size: 20px;
 }
 
 .public-switch {
@@ -424,4 +447,17 @@ ul {
   color: white;
   border: none;
   cursor: pointer;
+}
+
+.table {
+  border-spacing: 0 15px;
+}
+
+i {
+  font-size: 1rem !important;
+}
+
+.ingredient-container {
+  display: flex;
+  justify-content: center;
 }
