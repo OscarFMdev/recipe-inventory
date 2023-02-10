@@ -24,10 +24,11 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [your_project_name] <a name="about-project"></a>
+# 📖 Recipe Inventory <a name="about-project"></a>
 
 
-**[your_project__name]** is a...
+## Receipe Inventory
+ The Recipe inventory web app keeps track of all your recipes, ingredients, and inventory. It will allow you to save ingredients, keep track of what you have, create recipes, and generate a shopping list based on what you have and what you are missing from a recipe. Also, since sharing recipes is an important part of cooking the app should allow you to make them public so anyone can access them.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -38,16 +39,11 @@
 <details>
   <summary>Client</summary>
   <ul>
-    <li><a href="https://reactjs.org/">React.js</a></li>
+    <li><a href="https://CSS.org/">CSS</a></li>
   </ul>
 </details>
 
-<details>
-  <summary>Server</summary>
-  <ul>
-    <li><a href="https://expressjs.com/">Express.js</a></li>
-  </ul>
-</details>
+
 
 <details>
 <summary>Database</summary>
@@ -62,9 +58,9 @@
 
 
 
-- **[key_feature_1]**
-- **[key_feature_2]**
-- **[key_feature_3]**
+- **[Unique user sessions per login]**
+- **[Foods and recipe sync to get a general shopping list]**
+- **[Recipes can be made private or public]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -74,7 +70,8 @@
 
 
 
-- [Live Demo Link](https://yourdeployedapplicationlink.com)
+ ## Live Demo 
+ - Under developement ......
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -89,36 +86,33 @@ To get a local copy up and running, follow these steps.
 
 In order to run this project you need:
 
-<!--
-Example command:
+
 
 ```sh
  gem install rails
 ```
- -->
+
 
 ### Setup
 
 Clone this repository to your desired folder:
 
-<!--
-Example commands:
+
 
 ```sh
   cd my-folder
-  git clone git@github.com:myaccount/my-project.git
+  git clone git@github.com:OscarFMdev/recipe-inventory.git
 ```
---->
+
 
 ### Install
 
 Install this project with:
 
-<!--
-Example command:
+
 
 ```sh
-  cd my-project
+  cd recipe-inventory
   gem install
 ```
 --->
@@ -127,10 +121,13 @@ Example command:
 
 To run the project, execute the following command:
 
-<!--
-Example command:
+
 
 ```sh
+  rails db:migrate
+
+  rails db:seeds
+
   rails server
 ```
 --->
@@ -139,25 +136,18 @@ Example command:
 
 To run tests, run the following command:
 
-<!--
-Example command:
+
 
 ```sh
-  bin/rails test test/models/article_test.rb
+  bin/rails rspec
 ```
---->
+
 
 ### Deployment
 
 You can deploy this project using:
 
-<!--
-Example:
-
-```sh
-
-```
- -->
+nill....
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -174,7 +164,7 @@ Example:
 - LinkedIn: [LinkedIn](https://linkedin.com/in/OscarFMdev)
 
 
-👤 **Author2**
+👤 **Author2: Shedrack Sunday**
 
 - GitHub: [@Shedrack-Sunday](https://github.com/Shedrack-Sunday)
 - Twitter: [@DeleSundayS](https://twitter.com/DeleSundayS)
@@ -182,19 +172,18 @@ Example:
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- FUTURE FEATURES -->
+
 
 ## 🔭 Future Features <a name="future-features"></a>
 
 
 
-- [ ] **[new_feature_1]**
-- [ ] **[new_feature_2]**
-- [ ] **[new_feature_3]**
+- [ ] **[Abikity to upload images]**
+- [ ] **[Refactoring of stying witha framework]**
+- [ ] **[Connnecting to an external API to get recipe]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- CONTRIBUTING -->
 
 ## 🤝 Contributing <a name="contributing"></a>
 
@@ -208,23 +197,19 @@ Feel free to check the [issues page](../../issues/).
 
 ## ⭐️ Show your support <a name="support"></a>
 
-
-
-If you like this project...
+If you like this project we'll be glad to see you show some support with stars :wink
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- ACKNOWLEDGEMENTS -->
+
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-
-
-I would like to thank...
+I would like to thank Microverse for inspring the design of the project 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- FAQ (optional) -->
+
 
 ## ❓ FAQ <a name="faq"></a>
 
@@ -244,6 +229,6 @@ I would like to thank...
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](./LICENSE) licensed.
+This project is [MIT](./MIT.md) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
