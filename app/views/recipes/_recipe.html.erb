@@ -6,7 +6,7 @@
     <% end %>
     <% if current_user.id == recipe.user_id%>
       <div>
-          <%= button_to "Delete", recipe_path(recipe), :method => :delete, data: {turbo_method: :delete}, class: "delete-button" %>
+          <%= button_to "Remove", recipe_path(recipe), :method => :delete, data: {turbo_method: :delete}, class: "delete-button" %>
       </div>
     <% end %>
   </div>

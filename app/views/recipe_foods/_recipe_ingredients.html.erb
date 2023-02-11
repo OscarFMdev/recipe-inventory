@@ -15,7 +15,7 @@
     </td>
     <td class=" ">
       <span class="">
-        <i class=""><%= button_to "Delete ingredient", "#{recipe_recipe_foods_path(@recipe)}/#{recipe_food.id}", method: :delete, data: { confirm: "Are you sure?" } %></i>
+        <i><%= button_to "Delete ingredient", "#{recipe_recipe_foods_path(@recipe)}/#{recipe_food.id}", method: :delete, data: { confirm: "Are you sure?" }, class: 'delete-button' %></i>
         </span>
     </td>
   </tr>
