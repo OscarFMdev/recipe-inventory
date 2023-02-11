@@ -1,0 +1,10 @@
+<li class="recipe-listing">
+  <div class="recipe-name">
+    <%= link_to public_recipe.name, recipe_path(public_recipe) %>
+    <p>By: <%= User.find(public_recipe.user_id).name %></p>
+  </div>
+  <div class="recipe-description">
+    <%=public_recipe.description%>
+    <p>Total food items: <%= public_recipe.recipe_foods.sum(:quantity) %> Price: <%= "$ #{public_recipe.recipe_foods.sum(:quantity) * public_recipe.foods.sum(:price)}" %> </p>
+  </div>
+</li>

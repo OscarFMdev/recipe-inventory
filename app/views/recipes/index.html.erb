@@ -1,0 +1,11 @@
+ <div>
+ <h1 class="heading">Recipes</h1>
+    <div class="add-btn-container" >
+      <%= link_to "New recipe", new_recipe_path, class: "add-btn" %>
+    </div>
+    <div class="recipes-container flex-column">
+      <% @recipes.each do |recipe| %>
+        <%= render recipe %>
+      <% end %>
+    </div>
+</div>

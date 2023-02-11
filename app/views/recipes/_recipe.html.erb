@@ -1,0 +1,16 @@
+<li class="recipe-listing">
+  <div class="recipe-name">
+    <%= link_to recipe_path(recipe) do %>
+     <h4>Recipe #<%= recipe.recipe_number %> </h4>
+     <p><%= recipe.name %></p>
+    <% end %>
+    <% if current_user.id == recipe.user_id%>
+      <div>
+          <%= button_to "Remove", recipe_path(recipe), :method => :delete, data: {turbo_method: :delete}, class: "delete-button" %>
+      </div>
+    <% end %>
+  </div>
+  <div class="recipe-description">
+    <%=recipe.description%>
+  </div>
+</li>

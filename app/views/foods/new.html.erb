@@ -1,0 +1,20 @@
+<div class="">
+	<div class="">
+		<div class="">
+			<div class="">
+				<div>
+					<h1 class="">Add Your Food</h1>
+                     <% if @food.errors.any? %>
+                            <ul>
+                            <% @food.errors.full_messages.each do |msg|%>
+                            <li><%= msg %></li>
+                            <% end %>
+                            </ul>
+                    <% end %>
+
+				</div>
+				<%= render 'form' %>
+            </div>
+        </div>
+    </div>
+</div>

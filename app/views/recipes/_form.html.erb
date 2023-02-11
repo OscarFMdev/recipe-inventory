@@ -1,0 +1,32 @@
+<section class="flex-column">
+  <div class="newRecepForm">
+    <%= form_with model: @recipe do |form| %>
+    <h2>Welcome little <%= current_user.name %>, please add your recipe</h2>
+    <div class="form-locaton">
+      <%= form.text_field :name, placeholder: "Title", class:'form-control' %>
+    </div>
+    
+    <div class="form-locaton">
+        <%= form.number_field :preparation_time, placeholder: "Preparation time in min", class:'form-control' %>
+    </div>
+    
+    <div class="form-locaton">
+        <%= form.number_field :cooking_time, placeholder: "Cooking time in min", class:'form-control' %>
+      </div>
+    
+    <div class="form-locaton">
+        <%= form.text_area :description, required: true, placeholder: "Description", class:'form-control'%>
+    </div>
+    
+    <div class="form-locaton check-box">
+      <%= form.label :public, class: "form-label-checkbox"%>
+      <%= form.check_box :public, {}, 'true', 'false' %>
+    </div>
+    
+    <div class="form-locaton">
+        <%= form.submit "Add", class:'add-recipe-btn' %>
+    </div>
+    
+    <% end %>
+  </div>
+</section>

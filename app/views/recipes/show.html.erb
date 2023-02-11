@@ -1,0 +1,91 @@
+<link
+	href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+	rel="stylesheet">
+<div class="recipe-details">
+<h1 class="recipe-name-show">Recipe <%= @recipe.recipe_number %></h1>
+  <div class="recipe-info">
+    <div class="info-item flex-around">
+      <p><b>Preparation Time:  <span> <%= @recipe.preparation_time %></span></b></p>
+      <% if @current_user.id == @recipe.user_id %>
+      <div class="public-switch">
+        <span>Public</span>
+        <label for="public-switch">
+          <input type="checkbox" id="public-switch" class="" <%= @recipe.public ? 'checked' : '' %>>
+          <div class="switch"></div>
+        </label>
+      </div>
+    <% end %>
+    </div>
+    <div class="info-item">
+    <p><b>Cooking Time: <span> <%= @recipe.cooking_time %></span></b></p>
+      
+    </div>
+    <div class="info-item">
+      <span> <%= @recipe.description %></span>
+    </div>
+  </div>
+  <div class="actions">
+    <div class="action-item">
+      <%= link_to "/general_shopping_list", class: "action-link" do %>
+        <button class="add-food-btn">
+          General Shopping List
+        </button>
+      <% end %>
+    </div>
+    <div class="action-item">
+      <%= link_to new_recipe_recipe_food_path(@recipe), class: "action-link" do %>
+        <button class="add-food-btn">
+          Add Ingredient
+        </button>
+      <% end %>
+    </div>
+  </div>
+</div>
+    
+     <hr class="">
+		<div class="ingredient-container">
+			<table class="food-table">
+        <% if @recipe_foods.length > 0 %>
+        <thead class="table-header">
+          <tr>
+            <th class="table-header-cell">Food</th>
+            <th class="table-header-cell">Quantity</th>
+            <th class="table-header-cell">Value</th>
+            <th class="table-header-cell">Actions</th>
+          </tr>
+        </thead>
+        
+          <% @recipe_foods.each do |recipe_food| %>
+            <%= render :partial => 'recipe_foods/recipe_ingredients', :locals => {:recipe_food => recipe_food} %>
+          <% end %>
+    <% else %>
+      <p class="">Ingredient list is empty.</p>
+    <% end %>
+        </table>
+                </div>
+	</div>
+</div>
+
+<style>
+	.table {
+		border-spacing: 0 15px;
+	}
+
+	i {
+		font-size: 1rem !important;
+	}
+
+	.table tr {
+		border-radius: 20px;
+	}
+
+	tr td:nth-child(n+5),
+	tr th:nth-child(n+5) {
+		border-radius: 0 .625rem .625rem 0;
+	}
+
+	tr td:nth-child(1),
+	tr th:nth-child(1) {
+		border-radius: .625rem 0 0 .625rem;
+	}
+</style>
