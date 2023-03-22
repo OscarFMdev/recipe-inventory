@@ -71,7 +71,7 @@
 
 
  ## Live Demo 
- - Under developement ......
+ - [Live Demo](https://recipe-inventory.fly.dev/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
